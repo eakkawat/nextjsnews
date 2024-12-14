@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { DUMMY_NEWS } from '@/dummy-news';
+import { notFound } from 'next/navigation';
 
 function NewsDetailPage({ params }: { params: { slug: string } }) {
   const newsSlug = params.slug;
   const newsItem = DUMMY_NEWS.find((news) => news.slug === newsSlug);
 
   if (!newsItem) {
-    return <div>News not found</div>;
+    notFound();
   }
 
   return (
