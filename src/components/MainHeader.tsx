@@ -2,8 +2,11 @@ import Link from 'next/link';
 
 function MainHeader() {
   return (
-    <header>
+    <header id='main-header'>
       <nav>
+        <div id='logo'>
+          <Link href='/'>NextNews</Link>
+        </div>
         <ul>
           <li>
             <Link href='/'>Home</Link>

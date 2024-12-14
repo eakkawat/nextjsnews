@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { DUMMY_NEWS } from '@/dummy-news';
+import Image from 'next/image';
 
 function NewsPage() {
   return (
@@ -8,19 +10,23 @@ function NewsPage() {
         text-2xl 
         font-bold
       '>
-        NewsPage
+        News Page
       </h1>
-      <ul className='text-blue-600'>
-        <li>
-          <Link href='/news/1'>News 1</Link>
-        </li>
-        <li>
-          <Link href='/news/2'>News 2</Link>
-        </li>
-        <li>
-          <Link href='/news/3'>News 3</Link>
-        </li>
-      </ul>{' '}
+      <ul className='news-list'>
+        {DUMMY_NEWS.map((newsItem) => (
+          <li key={newsItem.id}>
+            <Link href={`/news/${newsItem.slug}`}>
+              <Image
+                src={`/images/news/${newsItem.image}`}
+                alt={newsItem.title}
+                width={200}
+                height={200}
+              />
+              <p>{newsItem.title}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
