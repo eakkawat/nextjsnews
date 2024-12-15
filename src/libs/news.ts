@@ -18,10 +18,12 @@ export function getAvailableNewsYears() {
   }, []).sort((a, b) => b - a);
 }
 
-export function getAvaliableNewsMonths(year: number) {
+export function getAvaliableNewsMonths(year: string) {
   return DUMMY_NEWS.reduce((months: number[], news) => {
     const newsYear = new Date(news.date).getFullYear();
-    if (newsYear === year) {
+
+    // Get all months for the given year
+    if (newsYear.toString() === year) {
       const month = new Date(news.date).getMonth();
       if (!months.includes(month)) {
         months.push(month);
