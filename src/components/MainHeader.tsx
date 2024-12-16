@@ -1,6 +1,14 @@
 import Link from 'next/link';
+import NavLink from './NavLink';
+
+const navLinks = [
+  { path: '/', text: 'Home' },
+  { path: '/news', text: 'News' },
+  { path: '/archive', text: 'Archive' },
+];
 
 function MainHeader() {
+  console.log('rerender main header');
   return (
     <header id='main-header'>
       <nav>
@@ -8,12 +16,11 @@ function MainHeader() {
           <Link href='/'>NextNews</Link>
         </div>
         <ul>
-          <li>
-            <Link href='/'>Home</Link>
-          </li>
-          <li>
-            <Link href='/news'>News</Link>
-          </li>
+          {navLinks.map((link) => (
+            <li key={link.path}>
+              <NavLink href={link.path}>{link.text}</NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
