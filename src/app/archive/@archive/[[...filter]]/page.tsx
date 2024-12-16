@@ -36,7 +36,7 @@ async function FilterNewsPage({ params }: { params: { filter: string[] } }) {
   if (selectedYear && selectedMonth) {
     news = getNewsByYearAndMonth(selectedYear, selectedMonth);
     if (!news || news.length === 0)
-      error = <div>No news found for the selected period</div>;
+      throw new Error('No news found for the selected period');
   }
 
   return (
