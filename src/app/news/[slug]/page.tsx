@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { DUMMY_NEWS } from '@/dummy-news';
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 
 function NewsDetailPage({ params }: { params: { slug: string } }) {
   const newsSlug = params.slug;
@@ -13,12 +14,14 @@ function NewsDetailPage({ params }: { params: { slug: string } }) {
   return (
     <article className='news-article'>
       <header>
-        <Image
-          width={200}
-          height={200}
-          src={`/images/news/${newsItem.image}`}
-          alt={newsItem.title}
-        />
+        <Link href={`/news/${newsItem.slug}/image`}>
+          <Image
+            width={200}
+            height={200}
+            src={`/images/news/${newsItem.image}`}
+            alt={newsItem.title}
+          />
+        </Link>
         <h1>{newsItem.title}</h1>
         <time dateTime={newsItem.date}>{newsItem.date}</time>
       </header>
