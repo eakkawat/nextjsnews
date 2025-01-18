@@ -3,8 +3,8 @@ import { DUMMY_NEWS } from '@/dummy-news';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 
-function NewsDetailPage({ params }: { params: { slug: string } }) {
-  const newsSlug = params.slug;
+async function NewsDetailPage({ params }: { params: { slug: string } }) {
+  const { slug: newsSlug } = await params;
   const newsItem = DUMMY_NEWS.find((news) => news.slug === newsSlug);
 
   if (!newsItem) {

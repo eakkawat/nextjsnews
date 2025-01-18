@@ -1,15 +1,15 @@
 import { DUMMY_NEWS } from '@/dummy-news';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 
-function ImagePage({
+async function ImagePage({
   params,
 }: {
   params: {
     slug: string;
   };
 }) {
-  const newsItemSlug = params.slug;
+  const { slug: newsItemSlug } = await params;
   const newsItem = DUMMY_NEWS.find((item) => item.slug === newsItemSlug);
 
   if (!newsItem) notFound();
