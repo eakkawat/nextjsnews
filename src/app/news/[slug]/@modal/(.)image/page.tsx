@@ -15,17 +15,18 @@ async function InterceptedImagePage({
   if (!newsItem) notFound();
 
   return (
-    <>
-      <h2>Intercept</h2>
-      <div className='fullscreen-image'>
-        <Image
-          src={`/images/news/${newsItem.image}`}
-          alt={newsItem.title}
-          width={1000}
-          height={500}
-        />
-      </div>
-    </>
+    <div className='modal-backdrop'>
+      <dialog className='modal' open>
+        <div style={{ width: '100%', height: '100%' }}>
+          <Image
+            src={`/images/news/${newsItem.image}`}
+            alt={newsItem.title}
+            fill
+            objectFit='contain'
+          />
+        </div>
+      </dialog>
+    </div>
   );
 }
 export default InterceptedImagePage;
