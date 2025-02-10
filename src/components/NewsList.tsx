@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { INews } from '../app/interfaces/news';
+import { INews } from '@/interfaces/news';
 
 function NewsList({ news }: { news: INews[] }) {
   return (

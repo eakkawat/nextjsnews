@@ -1,5 +1,6 @@
 import logo from '@/assets/logo.jpg';
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
         understand and to the point. We want to keep you informed witout
         overwhelming you with unecessay information.
       </p>
+      <Link href='/news'>Read the latest news</Link>
     </div>
   );
 }

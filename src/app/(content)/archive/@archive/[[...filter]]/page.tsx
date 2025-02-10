@@ -1,4 +1,4 @@
-import { INews } from '@/app/interfaces/news';
+import { INews } from '@/interfaces/news';
 import NewsList from '@/components/NewsList';
 import {
   getAvailableNewsYears,
